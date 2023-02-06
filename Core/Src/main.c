@@ -65,6 +65,9 @@ void setSound(int freq) {
 	htim1.Instance->ARR = 1000000 / freq - 1;
 	htim1.Instance->CCR1 = htim1.Instance->CNT / 2;
 }
+void stopSound() {
+	htim1.Instance->CCR1 = 0;
+}
 /* USER CODE END 0 */
 
 /**
@@ -144,6 +147,7 @@ int main(void)
   			HAL_Delay(300);
   			break;
   	}
+  	stopSound();
   }
   /* USER CODE END 3 */
 }
